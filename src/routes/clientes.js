@@ -10,18 +10,18 @@ const {
 const router = Router();
 
 // agregar nuevo cliente
-router.post('/clientes', nuevoCliente);
+router.post('/', nuevoCliente);
 
 // mostrar clientes
-router.get('/clientes', mostrarClientes);
+router.get('/', mostrarClientes);
 
 // mostrar un cliente
-router.get('/clientes/:idCliente', mostrarCliente);
+router.get('/:idCliente', mostrarCliente);
 
 // actualizar cliente
-router.put('/clientes/:idCliente', actualizarCliente);
+router.put('/:idCliente', actualizarCliente);
 
 // eliminar cliente
-router.delete('/clientes/:idCliente', eliminarCliente);
+router.delete('/:idCliente', eliminarCliente);
 
 module.exports = router;

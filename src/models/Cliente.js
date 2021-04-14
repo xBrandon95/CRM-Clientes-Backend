@@ -2,25 +2,25 @@ const { Schema, model } = require('mongoose');
 
 const clienteSchema = Schema({
   nombre: {
-    type: 'string',
+    type: String,
     trim: true,
   },
   apellido: {
-    type: 'string',
+    type: String,
     trim: true,
   },
   empresa: {
-    type: 'string',
+    type: String,
     trim: true,
   },
   email: {
-    type: 'string',
+    type: String,
     unique: true,
     lowercase: true,
     trim: true,
   },
   telefono: {
-    type: 'string',
+    type: String,
     trim: true,
   },
 });

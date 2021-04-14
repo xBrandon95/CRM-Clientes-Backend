@@ -18,7 +18,8 @@ dbConnection();
 app.use(morgan('dev'));
 
 // rutas de la app
-app.use('/api/', require('./routes'));
+app.use('/api/clientes', require('./routes/clientes'));
+app.use('/api/productos', require('./routes/productos'));
 
 // definiendo el puerto
 const port = process.env.PORT || 4000;
