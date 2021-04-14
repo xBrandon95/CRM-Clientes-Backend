@@ -1,13 +1,27 @@
 const { Router } = require('express');
+const {
+  nuevoCliente,
+  mostrarClientes,
+  mostrarCliente,
+  actualizarCliente,
+  eliminarCliente,
+} = require('../controllers/clienteController');
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.send('inicio');
-});
+// agregar nuevo cliente
+router.post('/clientes', nuevoCliente);
 
-router.get('/nosotros', (req, res) => {
-  res.send('nosotros');
-});
+// mostrar clientes
+router.get('/clientes', mostrarClientes);
+
+// mostrar un cliente
+router.get('/clientes/:idCliente', mostrarCliente);
+
+// actualizar cliente
+router.put('/clientes/:idCliente', actualizarCliente);
+
+// eliminar cliente
+router.delete('/clientes/:idCliente', eliminarCliente);
 
 module.exports = router;

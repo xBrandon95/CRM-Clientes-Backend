@@ -3,9 +3,13 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const dbConnection = require('./config/db');
 
+dotenv.config();
+
 // crear el servidor
 const app = express();
-dotenv.config();
+
+// habilitando json
+app.use(express.json());
 
 // coneccion a la base de datos
 dbConnection();
@@ -14,7 +18,7 @@ dbConnection();
 app.use(morgan('dev'));
 
 // rutas de la app
-app.use(require('./routes'));
+app.use('/api/', require('./routes'));
 
 // definiendo el puerto
 const port = process.env.PORT || 4000;
