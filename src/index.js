@@ -20,6 +20,7 @@ app.use(morgan('dev'));
 // rutas de la app
 app.use('/api/clientes', require('./routes/clientes'));
 app.use('/api/productos', require('./routes/productos'));
+app.use('/api/pedidos', require('./routes/pedidos'));
 
 // definiendo el puerto
 const port = process.env.PORT || 4000;
