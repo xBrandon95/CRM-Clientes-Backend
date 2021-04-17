@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const cors = require('cors');
 const dbConnection = require('./config/db');
 
 dotenv.config();
@@ -10,6 +11,9 @@ const app = express();
 
 // habilitando json
 app.use(express.json());
+
+// habilitando colors
+app.use(cors());
 
 // coneccion a la base de datos
 dbConnection();
