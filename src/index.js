@@ -25,6 +25,7 @@ app.use(morgan('dev'));
 app.use(express.static('src/uploads'));
 
 // rutas de la app
+app.use('/api', require('./routes/usuarios'));
 app.use('/api/clientes', require('./routes/clientes'));
 app.use('/api/productos', require('./routes/productos'));
 app.use('/api/pedidos', require('./routes/pedidos'));
