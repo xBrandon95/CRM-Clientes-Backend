@@ -21,6 +21,9 @@ dbConnection();
 // utilizando morgan
 app.use(morgan('dev'));
 
+// carpeta publica
+app.use(express.static('src/uploads'));
+
 // rutas de la app
 app.use('/api/clientes', require('./routes/clientes'));
 app.use('/api/productos', require('./routes/productos'));

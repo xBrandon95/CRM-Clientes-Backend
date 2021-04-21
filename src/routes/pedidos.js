@@ -10,7 +10,7 @@ const {
 const router = Router();
 
 // nuevo pedido
-router.post('/', nuevoPedido);
+router.post('/:idUsuario', nuevoPedido);
 
 // mostrar los pedidos
 router.get('/', mostrarPedidos);

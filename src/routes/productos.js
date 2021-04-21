@@ -6,6 +6,7 @@ const {
   mostrarProducto,
   actualizarProducto,
   eliminarProducto,
+  buscarProducto,
 } = require('../controllers/productosController');
 
 const router = Router();
@@ -24,5 +25,8 @@ router.put('/:idProducto', subirArchivo, actualizarProducto);
 
 // eliminar producto por id
 router.delete('/:idProducto', eliminarProducto);
+
+// busqueda de productos
+router.post('/busqueda/:query', buscarProducto);
 
 module.exports = router;

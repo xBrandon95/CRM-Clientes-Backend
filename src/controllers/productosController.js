@@ -6,12 +6,12 @@ exports.nuevoProducto = async (req, res, next) => {
   try {
     const producto = new Producto(req.body);
 
-    if (req.file.filename) {
+    if (req.file) {
       producto.imagen = req.file.filename;
     }
 
     await producto.save();
-    res.json({ msg: 'Se agrego un nuevo producto' });
+    res.json({ msg: 'Se agrego un nuevo producto', producto });
   } catch (error) {
     console.log(error);
     next();
@@ -78,7 +78,7 @@ exports.actualizarProducto = async (req, res, next) => {
       fs.unlinkSync(`./src/uploads/${productoAnterior.imagen}`);
     }
     // mostrar producto actualizado
-    res.status(200).json(producto);
+    res.json({ msg: 'Se edito el producto', producto });
   } catch (error) {
     console.log(error);
     next();
@@ -93,6 +93,19 @@ exports.eliminarProducto = async (req, res, next) => {
     await Producto.findOneAndDelete({ _id: idProducto });
     fs.unlinkSync(`./src/uploads/${producto.imagen}`);
     res.json({ msg: 'Producto Eliminado' });
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+};
+
+// buscar producto
+exports.buscarProducto = async (req, res, next) => {
+  try {
+    // obtener el query
+    const { query } = req.params;
+    const producto = await Producto.find({ nombre: new RegExp(query, 'i') });
+    res.json(producto);
   } catch (error) {
     console.log(error);
     next();
